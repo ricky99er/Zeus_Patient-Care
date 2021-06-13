@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head background-color: coral;>
+
+    <title>Disease predictor </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<style>
+  body {
+  background-color:#0492C2;
+}
+  div {
+    background-image: url('medicine-healthcare-concept-doctor-stethoscope-clinic-close-up-global-125171698.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+
+<body>
+<div class="jumbotron text-center">
+    <h1 style="color:rgb(83, 114, 218);">Disease Predictor </h1> 
+    <p style="color:rgb(30, 74, 219);">Enter symptoms for Diagnosis </p> 
+    <div class="input-group-btn">
+        <button type="button" class="btn btn-danger" id="add_symptom">Enter Symptom</button>
+    </div>
+</div>
+<script>
+var ele =[]
+var res=[]
+var den=["skin rash","vomiting","joint pain","nausea","red spots","high fever"]
+var mig=["visual distraction","depression","excessive hunger","blurred vision","head ache","indigestion"]
+var dia=["polyuria","increased appetite","fatigue","weight loss","restlessness","irregular sugar level"]
+var jaun=["abdmoinal pain","dark urine","yellowish skin","high fever","weigh loss","itching"]
+var cd =["shortness of breath","chest pain","fever","dry cough","loss of taste or smell","aches and pains"]
+var cp=["itching","skin rash","fatigue","lethargy","low fever","loss of appetite"]
+function ddl(){
+ele.push(fid.ds[fid.ds.selectedIndex].text)
+//document.getElementById('l').innerHTML= ('result: ' +ele[0])
+}
+function ddl1(){
+ele.push(fid1.ds1[fid1.ds1.selectedIndex].text)
+//document.getElementById('l1').innerHTML= ('result: ' +ele[1])
+}
+function ddl2(){
+ele.push(fid2.ds2[fid2.ds2.selectedIndex].text)
+//document.getElementById('l2').innerHTML= ('result: ' +ele[2])
+}
+function ddl3(){
+ele.push(fid3.ds3[fid3.ds3.selectedIndex].text)
+//document.getElementById('l3').innerHTML= ('result: ' +ele[3])
+}
+function ddl4(){
+ele.push(fid4.ds4[fid4.ds4.selectedIndex].text)
+//document.getElementById('l4').innerHTML= ('result: ' +ele[4])
+}
+function ddl5(){
+ele.push(fid5.ds5[fid5.ds5.selectedIndex].text)
+var c=0;
+var i=0;
+for(i=0;i<6;i++){
+var n=den.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+c=0;
+for(i=0;i<6;i++){
+var n=mig.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+c=0;
+for(i=0;i<6;i++){
+var n=dia.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+c=0;
+for(i=0;i<6;i++){
+var n=jaun.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+c=0;
+for(i=0;i<6;i++){
+var n=cd.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+c=0;
+for(i=0;i<6;i++){
+var n=cp.includes(ele[i]);
+if(n){
+c=c+1;
+}
+}
+res.push(c);
+var mx=0;
+for(i=0;i<6;i++){
+mx=Math.max(mx,res[i]);
+}
+var fg=0;
+for(i=0;i<6;i++){
+if(mx==res[i]){
+if(i==0){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('l5').innerHTML= ('Dengue: '+p+"%")
+  }
+}
+if(i==1){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('l5').innerHTML= ('Migrane: '+p+"%")
+  }
+}
+if(i==2){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('15').innerHTML= ('Diabetics: '+p+"%")
+  }
+}
+if(i==3){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('l5').innerHTML= ('Jaundice : '+p+"%")
+  }
+}
+if(i==4){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('l5').innerHTML= ('Covid Positive :'+p+"%")
+  }
+}
+if(i==5){
+if(fg==0){
+  fg=fg+1;
+  var p=(res[i]/6)*100;
+  document.getElementById('l5').innerHTML= ('Chicken pox :'+p+"%")
+  }
+}
+}
+}
+
+}
+</script>
+<style>
+    select {
+        width: 250px;
+        height: 25px;
+        margin: 5px;
+        border: 2px solid rgb(19, 112, 155);
+    }
+    select:focus {
+        min-width: 300px;
+        width: auto;
+    }
+</style>
+</head>
+<body>
+<center>
+<form name="fid">
+<select  name="ds" onchange = "ddl()">
+<option> select symptom</option>
+
+<option value= "skin rash"> skin rash</option>
+<option value = "visual distraction">visual distraction</option>
+<option value ="polyuria"> polyuria </option>
+<option value ="abdmoinal pain"> abdmoinal pain </option>
+<option value ="shortness of breath"> shortness of breath </option>
+<option value ="itching"> itching </option>
+</select>
+</form>
+<label id="l"> </label>
+<form name="fid1">
+<select name="ds1" onchange = "ddl1()">
+<option> select symptom</option>
+<option value= "vomiting"> vomiting</option>
+<option value = "depression">depression</option>
+<option value ="increased appetite">increased appetite</option>
+<option value ="dark urine">dark urine</option>
+<option value ="chest pain">chest pain</option>
+<option value ="skin rash">skin rash</option>
+</select>
+</form>
+<label id="l1"> </label>
+<form name="fid2">
+<select name="ds2" onchange = "ddl2()">
+<option> select symptom</option>
+<option value= "joint pain"> joint pain</option>
+<option value = "excessive hunger">excessive hunger</option>
+<option value ="fatigue">fatigue</option>
+<option value ="yellowish skin">yellowish skin</option>
+<option value ="fever">fever</option>
+<option value ="fatigue">fatigue</option>
+</select>
+</form>
+<label id="l2"> </label>
+<form name="fid3">
+<select name="ds3" onchange = "ddl3()">
+<option> select symptom</option>
+<option value= "nausea"> nausea</option>
+<option value = "blurred vision">blurred vision</option>
+<option value ="weight loss">weight loss</option>
+<option value ="high fever">high fever</option>
+<option value ="dry cough">dry cough</option>
+<option value ="lethargy">lethargy</option>
+</select>
+</form>
+<label id="l3"> </label>
+<form name="fid4">
+<select name="ds4" onchange = "ddl4()">
+<option> select symptom</option>
+<option value= "red spots">red spots</option>
+<option value = "head ache">head ache</option>
+<option value ="restlessness">restlessness</option>
+<option value ="weigh loss">weigh loss</option>
+<option value ="loss of taste or smell">loss of taste or smell</option>
+<option value ="low fever">low fever</option>
+</select>
+</form>
+<label id="l4"> </label>
+<form name="fid5">
+<select name="ds5" onchange = "ddl5()">
+<option> select symptom</option>
+<option value= "high fever">high fever</option>
+<option value = "indigestion">indigestion</option>
+<option value ="irregular sugar level">irregular sugar level</option>
+<option value ="itching">itching</option>
+<option value ="aches and pains">aches and pains</option>
+<option value ="loss of appetite">loss of appetite</option>
+</select>
+</form>
+<h6></h6>
+<label id="l5"> </label>
+<h6></h6>
+<button style="margin:25px;" onClick="window.location.reload();">Enter other symptoms</button>
+<button onclick="location.href = 'medicines_availability.html';" id="myButton" class="float-left submit-button" >Order Medicines from our Zeus pharmacy</button>
+<button onclick="location.href = 'https://www.apollo247.com/';" id="myButton" class="float-left submit-button" >Order Medicines from Apollo</button>
+<button onclick="location.href = 'https://ors.gov.in/index.html';" id="myButton" class="float-left submit-button" >Register in Govt website</button>
+</center>
+
+<style>
+  .jumbotron {
+      background-color: #115b79;
+      color: rgb(8, 117, 145);
+      padding: 100px 25px;
+  }
+  
+  .container-fluid {
+      padding: 60px 50px;
+  }
+</style>
+</body>
+</html>

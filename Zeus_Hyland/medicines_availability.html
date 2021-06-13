@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Medicines Availabilty </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<style>
+  body {
+    background-image: url('health-care-background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+</style>
+<body style="background-color:rgb(130, 231, 226);">
+</body>
+
+<body>
+<div class="jumbotron text-center">
+    <h1 style="color:rgb(83, 114, 218);">Medicines Availabilty </h1> 
+    <p style="color:rgb(30, 74, 219);">India's No.1 Medicine booking website</p> 
+    <div class="input-group-btn">
+    </div>
+</div>
+<script>
+var ele =[]
+function ddl(){
+ele.push(fid.ds[fid.ds.selectedIndex].text)
+var n=Math.floor(Math.random() * 101);
+var k=n%4;
+if(k!=0){
+document.getElementById('l').innerHTML= ele[0]+' '+' is Available proceed to booking'+'<br>';
+}
+else{
+document.getElementById('l').innerHTML= ele[0]+' '+'Not Available'+'<br>';
+}
+}
+</script>
+<style>
+    select {
+        width: 250px;
+        height: 25px;
+        margin: 5px;
+        border: 2px solid rgb(61, 49, 236);
+    }
+    select:focus {
+        min-width: 300px;
+        width: auto;
+    }
+</style>
+</head>
+<body>
+<center>
+<form name="fid">
+<select  name="ds" onchange = "ddl()">
+<option> select medicines</option>
+
+<option value= "Azithral 500 Table">Azithral 500 Table</option>
+<option value = "Amphonex 50mg Injection">Amphonex 50mg Injection</option>
+<option value ="Augmentin 625 Duo Tablet">Augmentin 625 Duo Tablet</option>
+<option value ="ACTEMRA 400 MG INJECTION">ACTEMRA 400 MG INJECTION</option>
+<option value ="Aciloc 150 Tablet">Aciloc 150 Tablet</option>
+<option value ="paracetamolt">paracetamol</option>
+<option value ="methotrexate">methotrexate</option>
+<option value ="doxycycline">doxycycline</option>
+<option value ="gentamicin">gentamicin</option>
+<option value ="metronidazole">metronidazole</option>
+<option value ="emtricitabine">emtricitabine</option>
+<option value ="quinine">quinine</option>
+</select>
+</form>
+<label id="l"> </label>
+<button style="margin:25px;" onClick="window.location.reload();">Enter other medicine</button>
+<button style="margin:25px;" onclick="location.href = 'pharmacy.html';" id="myButton" class="float-left submit-button" >Book Medicines</button>
+
+<style>
+    select {
+        width: 250px;
+        height: 25px;
+        margin: 5px;
+        border: 2px solid rgb(61, 49, 236);
+    }
+    select:focus {
+        min-width: 300px;
+        width: auto;
+    }
+</style>
+
+</center>
+<style>
+    .jumbotron {
+        background-color: hsl(183, 43%, 90%);
+        color: rgb(238, 249, 255);
+        padding: 50px 25px;
+    }
+    
+    .container-fluid {
+        padding: 60px 50px;
+    }
+  </style>
+</body>
+</html>
